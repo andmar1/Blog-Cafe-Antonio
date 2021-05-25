@@ -1,0 +1,321 @@
+/*selectores globales*/
+:root {
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+
+    --primario: #784D3C;
+    --gris: #e1e1e1;
+    --blanco: #ffffff;
+    --negro: #000000;
+}
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1 rem = 10px */    
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+/* Globales*/
+
+.contenedor {
+    width: min(90%, 120rem); /**hace que nuestros textos no se vayan hasta las orillas**/
+    margin: 0 auto;
+}
+
+
+a {
+    text-decoration: none;
+}
+h1, h2, h3, h4 {
+    font-family: var(--fuenteHeading);
+    line-height: 1.2;
+}
+h1 {
+    font-size: 4.8rem;
+}
+h2 {
+    font-size: 4rem;
+}
+h3 {
+    font-size: 3.2rem;
+}
+h4 {
+    font-size: 2.8rem;
+}
+img {
+    max-width: 100%;
+}
+
+/*Utilidades*/
+.no-margin{
+    margin:0;
+}
+
+.no-padding{
+    padding: 0;
+}
+
+.centrar-texto{
+    text-align: center;
+}
+
+/*Header*/
+.webp .header{
+    background-image: url(../img/banner.webp); /*Si el navegador soporta el formato wbep lo cargo, si no abre jpg*/
+}
+
+.no-webp .header{
+    background-image: url(../img/banner.jpg);
+}
+
+.header{
+    height: 60rem;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center center; /*si reducimos la imagen con formato responsivo, la imagen se centra valores fijos(center center) son vertical y horizontal*/
+}
+
+.header__texto{
+    text-align: center;
+    color: var(--blanco);
+    margin-top: 5rem;
+}
+@media (min-width: 768px){
+    .header__texto{
+        margin-top: 15rem;
+    }
+}
+.barra{
+    padding-top: 4rem;
+}
+
+@media (min-width: 768px){
+    .barra{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.logo{
+    color: var(--blanco);
+
+}
+
+.logo__nombre{
+    font-weight: 400;/*Tipo de letra*/
+
+}
+
+.logo__bold{
+    font-weight: 700;/*Tipo de letra*/
+
+}
+
+/*Media es usado para hacer responsivos las paginas cuendo lleguen a 768px en dispositivos moviles*/
+@media (min-width: 768px){
+    .navegacion{
+        display: flex; 
+        gap: 2rem;
+    }
+}
+
+.navegacion__enlace{
+    display: block; /*Para que esten uno debajo del otro*/
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--blanco);
+}
+
+
+@media (min-width: 768px){
+    .contenido-principal{
+        display: grid;
+        grid-template-columns:2fr 1fr ; /*partes de la pantalla-> 2/3 and 1/3*/
+        column-gap: 4rem;
+    }
+}
+
+.entrada{
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem; /*para poder ver la linea gris*/
+}
+
+.entrada:last-of-type{ /*Eliminar los bordes y los margenes solo en el ultimo*/
+    border: none;
+    margin-bottom: 0;
+}
+
+.boton{
+    display: block; /*Para ver el boton completo en dispositivos pequeños*/
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border: none;
+}
+ 
+@media (min-width: 768px){
+    .boton{
+        display: inline-block; /*Elementos de inline no les puedes poner margin no border*/
+    }
+}
+.boton:hover{
+    cursor: pointer;
+}
+
+.boton--primario{
+    background-color: var(--negro);
+}
+
+.boton--secundario{ /*Podemos interpretar que -- esta heredando de otra clase*/
+    background-color: var(--primario);
+}
+
+.cursos{
+    list-style: none; /*Para quitar las viñetas*/
+}
+
+.widget-curso {
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+.widget-curso:last-of-type {
+    border: none;
+    margin-bottom: 0;
+}
+
+.widget-curso__label{
+    font-family: var(--fuenteHeading);
+    font-weight: bold; /*podemos usar 700, es lo mismo*/
+}
+
+.widget-curso__info {
+    font-weight: normal;
+}
+.widget-curso__label,
+.widget-curso__info {
+    font-size: 2rem;
+}
+
+.footer {
+    background-color: var(--negro);
+    padding-bottom: 3rem;
+    margin-top: 4rem;
+}
+
+/** Sobre Nosotros **/
+@media (min-width: 768px) {
+    .sobre-nosotros {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+
+/*Cursos*/
+.curso{
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+
+@media (min-width: 768px){
+    .curso{
+        display:grid;
+        grid-template-columns: 1fr 2fr;       /*33.3% 66.7%; -> podemos utilizar porcentage o bien fracciones*/
+        column-gap: 2rem;
+    }
+}
+.curso:last-of-type{
+    border: none;
+}
+
+.curso__label{
+    font-family: var(--fuenteHeading);
+    font-weight: bold; /*podemos usar 700, es lo mismo*/
+}
+.curso__info {
+    font-weight: normal;
+}
+.curso__label,
+.curso__info {
+    font-size: 2rem;
+}
+
+/** Contacto **/
+.contacto-bg {
+    background-image: url(../img/contacto.jpg);
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.formulario {
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+}
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+}
+.campo__label {
+    flex: 0 0 9rem;
+    text-align: right;
+    padding-right: 2rem;
+}
+.campo__field {
+    flex: 1;
+    border: 1px solid var(--gris);
+}
+.campo__field--textarea {
+    height: 20rem;
+}
+
+
+
+
+
+    /*Con estilo de flexbox
+    .sobre-nosotros{
+        display: flex;
+        /*gap: 2rem; en caso que el navegador no soperte el gap usamos calc
+        justify-content: space-between;
+    }
+    .sobre-nosotros__texto{
+        flex: 0 0 calc(50% - 1rem);
+    }
+    .sobre-nosotros__imagen{
+        flex: 0 0 calc(50% - 1rem);
+    }
+
+    /* Usando la funcion cal
+    .sobre-nosotros__imagen,
+    .sobre-nosotros__texto{
+        flex-basis: calc(50% - 1rem); /*Separacion 
+    }    
+    */
+
+    /*
+    Con estilo de Grid
+        .sobre-nosotros{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);  /*podemos usar -> repeat(2, 50%);   
+        column-gap: 2rem;
+    }
+    */
+    
+
